@@ -1,534 +1,72 @@
---[========================================================================]
--- Script Name: JOSHBNS
--- Original Script: PeteHubGUI (Optimized & Renamed)
---[========================================================================]
+--[[\
+  JAYZHELBADING - MOBILE & PC OVERLAY SCRIPT
+--]]
 
-local JOSHBNS_G2L = {};
-JOSHBNS_G2L["1"] = Instance.new("ScreenGui", game:GetService("CoreGui"));
-JOSHBNS_G2L["1"]["Name"] = "JOSHBNS_GUI";
-JOSHBNS_G2L["1"]["ResetOnSpawn"] = false;
-JOSHBNS_G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
-JOSHBNS_G2L["1"]["IgnoreGuiInset"] = true;
-JOSHBNS_G2L["1"]["Enabled"] = true;
+local CoreGui = game:GetService("CoreGui")
+local UserInputService = game:GetService("UserInputService")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
 
-JOSHBNS_G2L["2"] = Instance.new("Frame", JOSHBNS_G2L["1"]);
-JOSHBNS_G2L["2"]["Name"] = "Main";
-JOSHBNS_G2L["2"]["Size"] = UDim2.new(0, 310, 0, 150);
-JOSHBNS_G2L["2"]["Position"] = UDim2.new(0.5, -155, 0.15, 0);
-JOSHBNS_G2L["2"]["BackgroundColor3"] = Color3.fromRGB(0, 190, 0);
-JOSHBNS_G2L["2"]["BackgroundTransparency"] = 0;
-JOSHBNS_G2L["2"]["BorderSizePixel"] = 0;
-JOSHBNS_G2L["2"]["Active"] = true;
-JOSHBNS_G2L["2"]["ClipsDescendants"] = true;
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "JAYZHELBADING_OVERLAY"
+ScreenGui.ResetOnSpawn = false
+ScreenGui.DisplayOrder = 999999999
 
-JOSHBNS_G2L["3"] = Instance.new("UICorner", JOSHBNS_G2L["2"]);
-JOSHBNS_G2L["3"]["CornerRadius"] = UDim.new(0, 16);
-
-JOSHBNS_G2L["4"] = Instance.new("UIStroke", JOSHBNS_G2L["2"]);
-JOSHBNS_G2L["4"]["Color"] = Color3.fromRGB(0, 0, 0);
-JOSHBNS_G2L["4"]["Thickness"] = 3;
-JOSHBNS_G2L["4"]["Transparency"] = 0;
-JOSHBNS_G2L["4"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
-
-JOSHBNS_G2L["5"] = Instance.new("UIScale", JOSHBNS_G2L["2"]);
-JOSHBNS_G2L["5"]["Scale"] = 0.62;
-
-JOSHBNS_G2L["6"] = Instance.new("ImageLabel", JOSHBNS_G2L["2"]);
-JOSHBNS_G2L["6"]["Name"] = "Background";
-JOSHBNS_G2L["6"]["Size"] = UDim2.new(1, 0, 1, 0);
-JOSHBNS_G2L["6"]["Position"] = UDim2.new(0, 0, 0, 0);
-JOSHBNS_G2L["6"]["BackgroundTransparency"] = 1;
-JOSHBNS_G2L["6"]["BorderSizePixel"] = 0;
-JOSHBNS_G2L["6"]["Image"] = "rbxassetid://105229160448852";
-JOSHBNS_G2L["6"]["ImageTransparency"] = 0.2;
-JOSHBNS_G2L["6"]["ScaleType"] = Enum.ScaleType.Crop;
-JOSHBNS_G2L["6"]["Visible"] = true;
-JOSHBNS_G2L["6"]["ZIndex"] = 1;
-
-JOSHBNS_G2L["7"] = Instance.new("UICorner", JOSHBNS_G2L["6"]);
-JOSHBNS_G2L["7"]["CornerRadius"] = UDim.new(0, 16);
-
-JOSHBNS_G2L["8"] = Instance.new("Frame", JOSHBNS_G2L["2"]);
-JOSHBNS_G2L["8"]["Name"] = "TitleBar";
-JOSHBNS_G2L["8"]["Size"] = UDim2.new(1, 0, 0, 54);
-JOSHBNS_G2L["8"]["BackgroundTransparency"] = 1;
-JOSHBNS_G2L["8"]["BorderSizePixel"] = 0;
-JOSHBNS_G2L["8"]["Active"] = true;
-JOSHBNS_G2L["8"]["ZIndex"] = 3;
-
-JOSHBNS_G2L["9"] = Instance.new("TextLabel", JOSHBNS_G2L["8"]);
-JOSHBNS_G2L["9"]["Name"] = "Title";
-JOSHBNS_G2L["9"]["Size"] = UDim2.new(1, 0, 1, 0);
-JOSHBNS_G2L["9"]["Position"] = UDim2.new(0, 0, 0, 0);
-JOSHBNS_G2L["9"]["BackgroundTransparency"] = 1;
-JOSHBNS_G2L["9"]["Text"] = "JOSHBNS";
-JOSHBNS_G2L["9"]["TextColor3"] = Color3.fromRGB(0, 255, 0);
-JOSHBNS_G2L["9"]["TextStrokeColor3"] = Color3.fromRGB(0, 0, 0);
-JOSHBNS_G2L["9"]["TextStrokeTransparency"] = 0.55;
-JOSHBNS_G2L["9"]["Font"] = Enum.Font.GothamBlack;
-JOSHBNS_G2L["9"]["TextSize"] = 22;
-JOSHBNS_G2L["9"]["TextXAlignment"] = Enum.TextXAlignment.Center;
-JOSHBNS_G2L["9"]["TextTruncate"] = Enum.TextTruncate.AtEnd;
-JOSHBNS_G2L["9"]["ZIndex"] = 4;
-
-JOSHBNS_G2L["10"] = Instance.new("UIStroke", JOSHBNS_G2L["9"]);
-JOSHBNS_G2L["10"]["Color"] = Color3.fromRGB(0, 0, 0);
-JOSHBNS_G2L["10"]["Thickness"] = 1.6;
-JOSHBNS_G2L["10"]["Transparency"] = 0.35;
-JOSHBNS_G2L["10"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Contextual;
-
-JOSHBNS_G2L["11"] = Instance.new("Frame", JOSHBNS_G2L["2"]);
-JOSHBNS_G2L["11"]["Name"] = "Body";
-JOSHBNS_G2L["11"]["Size"] = UDim2.new(1, 0, 1, -54);
-JOSHBNS_G2L["11"]["Position"] = UDim2.new(0, 0, 0, 54);
-JOSHBNS_G2L["11"]["BackgroundTransparency"] = 1;
-JOSHBNS_G2L["11"]["BorderSizePixel"] = 0;
-JOSHBNS_G2L["11"]["ZIndex"] = 3;
-
-JOSHBNS_G2L["12"] = Instance.new("TextButton", JOSHBNS_G2L["11"]);
-JOSHBNS_G2L["12"]["Name"] = "Reset";
-JOSHBNS_G2L["12"]["Size"] = UDim2.new(1, -32, 0, 40);
-JOSHBNS_G2L["12"]["Position"] = UDim2.new(0, 16, 0, 5);
-JOSHBNS_G2L["12"]["BackgroundColor3"] = Color3.fromRGB(0, 190, 0);
-JOSHBNS_G2L["12"]["BackgroundTransparency"] = 0;
-JOSHBNS_G2L["12"]["BorderSizePixel"] = 0;
-JOSHBNS_G2L["12"]["AutoButtonColor"] = false;
-JOSHBNS_G2L["12"]["Text"] = "AUTO TELEPORT: OFF";
-JOSHBNS_G2L["12"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-JOSHBNS_G2L["12"]["TextStrokeTransparency"] = 1;
-JOSHBNS_G2L["12"]["Font"] = Enum.Font.GothamBlack;
-JOSHBNS_G2L["12"]["TextSize"] = 16;
-JOSHBNS_G2L["12"]["ZIndex"] = 4;
-
-JOSHBNS_G2L["13"] = Instance.new("UICorner", JOSHBNS_G2L["12"]);
-JOSHBNS_G2L["13"]["CornerRadius"] = UDim.new(0, 12);
-
-JOSHBNS_G2L["14"] = Instance.new("UIStroke", JOSHBNS_G2L["12"]);
-JOSHBNS_G2L["14"]["Color"] = Color3.fromRGB(0, 190, 0);
-JOSHBNS_G2L["14"]["Thickness"] = 1.5;
-JOSHBNS_G2L["14"]["Transparency"] = 0.6;
-JOSHBNS_G2L["14"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
-
-JOSHBNS_G2L["20"] = Instance.new("TextLabel", JOSHBNS_G2L["11"]);
-JOSHBNS_G2L["20"]["Name"] = "Discord";
-JOSHBNS_G2L["20"]["Size"] = UDim2.new(1, -32, 0, 20);
-JOSHBNS_G2L["20"]["Position"] = UDim2.new(0, 16, 0, 50);
-JOSHBNS_G2L["20"]["BackgroundTransparency"] = 1;
-JOSHBNS_G2L["20"]["Text"] = "discord.gg/x5rJWX9PF";
-JOSHBNS_G2L["20"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-JOSHBNS_G2L["20"]["TextStrokeColor3"] = Color3.fromRGB(0, 0, 0);
-JOSHBNS_G2L["20"]["TextStrokeTransparency"] = 0.3;
-JOSHBNS_G2L["20"]["Font"] = Enum.Font.GothamBold;
-JOSHBNS_G2L["20"]["TextSize"] = 12;
-JOSHBNS_G2L["20"]["TextXAlignment"] = Enum.TextXAlignment.Center;
-JOSHBNS_G2L["20"]["ZIndex"] = 4;
-
-JOSHBNS_G2L["15"] = Instance.new("ScreenGui", game:GetService("CoreGui"));
-JOSHBNS_G2L["15"]["Name"] = "JOSHBNS_CircleButton";
-JOSHBNS_G2L["15"]["ResetOnSpawn"] = false;
-JOSHBNS_G2L["15"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
-JOSHBNS_G2L["15"]["DisplayOrder"] = 999;
-
-JOSHBNS_G2L["16"] = Instance.new("ImageButton", JOSHBNS_G2L["15"]);
-JOSHBNS_G2L["16"]["Size"] = UDim2.new(0, 43, 0, 43);
-JOSHBNS_G2L["16"]["Position"] = UDim2.new(0.5, -403, 0.5, -44);
-JOSHBNS_G2L["16"]["BackgroundColor3"] = Color3.fromRGB(0, 190, 0);
-JOSHBNS_G2L["16"]["BackgroundTransparency"] = 0;
-JOSHBNS_G2L["16"]["Image"] = "rbxassetid://105229160448852";
-JOSHBNS_G2L["16"]["ImageTransparency"] = 0;
-JOSHBNS_G2L["16"]["Active"] = true;
-JOSHBNS_G2L["16"]["Draggable"] = false;
-
-JOSHBNS_G2L["17"] = Instance.new("UICorner", JOSHBNS_G2L["16"]);
-JOSHBNS_G2L["17"]["CornerRadius"] = UDim.new(1, 0);
-
-JOSHBNS_G2L["18"] = Instance.new("UIStroke", JOSHBNS_G2L["16"]);
-JOSHBNS_G2L["18"]["Color"] = Color3.fromRGB(255, 255, 255);
-JOSHBNS_G2L["18"]["Thickness"] = 1.5;
-JOSHBNS_G2L["18"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
-
-JOSHBNS_G2L["19"] = Instance.new("LocalScript", JOSHBNS_G2L["1"]);
-JOSHBNS_G2L["19"]["Name"] = "MainScript";
-
-local function C_19()
-    local script = JOSHBNS_G2L["19"];
-    local Players = game:GetService("Players")
-    local Workspace = game:GetService("Workspace")
-    local CoreGui = game:GetService("CoreGui")
-    local TweenService = game:GetService("TweenService")
-    local RunService = game:GetService("RunService")
-    local UserInputService = game:GetService("UserInputService")
-    local LocalPlayer = Players.LocalPlayer
-    local ScreenGui = script.Parent
-    local MainFrame = ScreenGui:FindFirstChild("Main")
-    local ResetButton = MainFrame:FindFirstChild("Body"):FindFirstChild("Reset")
-    local TitleBar = MainFrame:FindFirstChild("TitleBar")
-    local circleButton = CoreGui:FindFirstChild("JOSHBNS_CircleButton"):FindFirstChild("ImageButton")
-    local TELEPORT_LOCATION = Vector3.new(546.40, 79.72, -365.68)
-    local STEAL_DISTANCE = 25
-    local isAutoTeleportOn = false
-    local resetCooldown = false
-    local isRagdolled = false
-    local guiOpen = true
-    local Character = nil
-    local HRP = nil
-    local Humanoid = nil
-    local isAutoStealOn = false
-    local ragdollCheckConnection = nil
-    local bypassConnection = nil
-    local isBypassed = false
-
-    local function getCharacter()
-        return LocalPlayer.Character
-    end
-
-    local function getHumanoid()
-        local char = getCharacter()
-        if char then
-            return char:FindFirstChildOfClass("Humanoid")
-        end
-        return nil
-    end
-
-    local function getHRP()
-        local char = getCharacter()
-        if char then
-            return char:FindFirstChild("HumanoidRootPart") or char:FindFirstChild("UpperTorso")
-        end
-        return nil
-    end
-
-    local function performTeleport()
-        if resetCooldown then return end
-        resetCooldown = true
-        local char = getCharacter()
-        if not char then
-            resetCooldown = false
-            return
-        end
-        local hrp = getHRP()
-        if not hrp then
-            resetCooldown = false
-            return
-        end
-        local parts = {}
-        for _, part in pairs(char:GetChildren()) do
-            if part:IsA("BasePart") and part ~= hrp then
-                parts[part] = part.Position - hrp.Position
-            end
-        end
-        hrp.CFrame = CFrame.new(TELEPORT_LOCATION)
-        hrp.AssemblyAngularVelocity = Vector3.new(0, 0, 0)
-        hrp.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
-        hrp.Velocity = Vector3.new(0, 0, 0)
-        hrp.RotVelocity = Vector3.new(0, 0, 0)
-        for part, offset in pairs(parts) do
-            if part and part.Parent then
-                part.CFrame = CFrame.new(TELEPORT_LOCATION + offset)
-                part.AssemblyAngularVelocity = Vector3.new(0, 0, 0)
-                part.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
-                part.Velocity = Vector3.new(0, 0, 0)
-                part.RotVelocity = Vector3.new(0, 0, 0)
-            end
-        end
-        task.wait(0.1)
-        task.delay(0.05, function()
-            resetCooldown = false
-        end)
-    end
-
-    local function bypassAntiCheat()
-        local char = LocalPlayer.Character
-        if not char then return end
-        local humanoid = char:FindFirstChildOfClass("Humanoid")
-        if not humanoid then return end
-        local cam = workspace.CurrentCamera
-        local camPos = cam.CFrame
-        local camSubject = cam.CameraSubject
-        local clone = humanoid:Clone()
-        clone.Parent = char
-        humanoid:Destroy()
-        task.wait(0.1)
-        local newHum = char:FindFirstChildOfClass("Humanoid")
-        if newHum then
-            if camSubject and camSubject:IsDescendantOf(workspace) then
-                cam.CameraSubject = camSubject
-            else
-                cam.CameraSubject = newHum
-            end
-            cam.CFrame = camPos
-            Character = char
-            Humanoid = newHum
-            isBypassed = true
-            newHum.PlatformStand = false
-            newHum:ChangeState(Enum.HumanoidStateType.Running)
-        end
-    end
-
-    local function maintainBypass()
-        if not Character or not Humanoid then return end
-        if not isBypassed then return end
-        local state = Humanoid:GetState()
-        if state == Enum.HumanoidStateType.Ragdoll or state == Enum.HumanoidStateType.FallingDown or state == Enum.HumanoidStateType.Physics then
-            pcall(function()
-                Humanoid:ChangeState(Enum.HumanoidStateType.GettingUp)
-            end)
-        end
-    end
-
-    local function getPromptPart(prompt)
-        local parent = prompt.Parent
-        if parent:IsA("BasePart") then return parent end
-        if parent:IsA("Attachment") then return parent.Parent end
-        if parent:IsA("Model") then
-            return parent.PrimaryPart or parent:FindFirstChildWhichIsA("BasePart", true)
-        end
-        return parent:FindFirstChildWhichIsA("BasePart", true)
-    end
-
-    local function findNearestSteal()
-        if not HRP or not HRP.Parent then return nil end
-        local closest = nil
-        local closestDistance = STEAL_DISTANCE
-        for _, obj in ipairs(Workspace:GetDescendants()) do
-            if obj:IsA("ProximityPrompt") and obj.Enabled then
-                local action = string.lower(tostring(obj.ActionText or ""))
-                local stealKeywords = {"steal", "grab", "take", "collect", "rob", "loot", "pickpocket", "snatch"}
-                local isStealAction = false
-                for _, keyword in ipairs(stealKeywords) do
-                    if string.find(action, keyword) then
-                        isStealAction = true
-                        break
-                    end
-                end
-                local promptName = string.lower(obj.Name or "")
-                local parentName = string.lower(obj.Parent and obj.Parent.Name or "")
-                if isStealAction or string.find(promptName, "steal") or string.find(parentName, "steal") then
-                    local part = getPromptPart(obj)
-                    if part and part:IsA("BasePart") and part.Parent then
-                        local distance = (HRP.Position - part.Position).Magnitude
-                        if distance <= closestDistance then
-                            closestDistance = distance
-                            closest = obj
-                        end
-                    end
-                end
-            end
-        end
-        return closest
-    end
-
-    local function activatePrompt(prompt)
-        if not prompt or not prompt:IsDescendantOf(Workspace) then return false end
-        if not prompt.Enabled then return false end
-        pcall(function()
-            prompt.HoldDuration = 0.01
-            prompt:InputHoldBegin()
-            task.wait(0.01)
-            prompt:InputHoldEnd()
-        end)
-        pcall(function()
-            prompt:Activate()
-        end)
-        pcall(function()
-            fireproximityprompt(prompt, 1, 0.01, false)
-        end)
-        return true
-    end
-
-    local function performAutoSteal()
-        if not isAutoStealOn then return end
-        if not HRP or not HRP.Parent then return end
-        local prompt = findNearestSteal()
-        if not prompt then return end
-        for i = 1, 10 do
-            pcall(function()
-                prompt.HoldDuration = 0.01
-                prompt:InputHoldBegin()
-                task.wait(0.01)
-                prompt:InputHoldEnd()
-            end)
-            pcall(function()
-                prompt:Activate()
-            end)
-            pcall(function()
-                fireproximityprompt(prompt, 1, 0.01, false)
-            end)
-            task.wait()
-        end
-    end
-
-    local function checkForRagdoll()
-        local char = getCharacter()
-        if not char then return end
-        local humanoid = getHumanoid()
-        if not humanoid then return end
-        local isRagdolledNow = false
-        if humanoid.PlatformStand then isRagdolledNow = true end
-        local hrp = getHRP()
-        if hrp and not isRagdolledNow then
-            local orientation = hrp.Orientation
-            if math.abs(orientation.X) > 70 or math.abs(orientation.Z) > 70 then
-                isRagdolledNow = true
-            end
-        end
-        local state = humanoid:GetState()
-        if state == Enum.HumanoidStateType.Physics or state == Enum.HumanoidStateType.Ragdoll or state == Enum.HumanoidStateType.FallingDown then
-            isRagdolledNow = true
-        end
-        if isRagdolledNow and isAutoTeleportOn and not isRagdolled then
-            isRagdolled = true
-            performTeleport()
-        elseif not isRagdolledNow then
-            isRagdolled = false
-        end
-    end
-
-    local function setupRagdollDetection()
-        if ragdollCheckConnection then
-            ragdollCheckConnection:Disconnect()
-            ragdollCheckConnection = nil
-        end
-        local humanoid = getHumanoid()
-        if not humanoid then return end
-        ragdollCheckConnection = RunService.Heartbeat:Connect(function()
-            if not isAutoTeleportOn then return end
-            checkForRagdoll()
-        end)
-        humanoid.StateChanged:Connect(function(oldState, newState)
-            if not isAutoTeleportOn then return end
-            if newState == Enum.HumanoidStateType.Physics or newState == Enum.HumanoidStateType.PlatformStand or newState == Enum.HumanoidStateType.Ragdoll or newState == Enum.HumanoidStateType.FallingDown then
-                isRagdolled = true
-                performTeleport()
-            elseif newState == Enum.HumanoidStateType.Running or newState == Enum.HumanoidStateType.Jumping or newState == Enum.HumanoidStateType.Landed then
-                isRagdolled = false
-            end
-        end)
-    end
-
-    local function setupCharacter(char)
-        if not char then return end
-        Character = char
-        Humanoid = char:WaitForChild("Humanoid")
-        HRP = char:WaitForChild("HumanoidRootPart")
-        setupRagdollDetection()
-        if isAutoTeleportOn then
-            task.wait(0.3)
-            bypassAntiCheat()
-        end
-    end
-
-    local function toggleAutoTeleport()
-        isAutoTeleportOn = not isAutoTeleportOn
-        isAutoStealOn = isAutoTeleportOn
-        if isAutoTeleportOn then
-            ResetButton.BackgroundColor3 = Color3.fromRGB(255, 165, 0)
-            ResetButton.Text = "AUTO TELEPORT: ON"
-            task.spawn(function()
-                if LocalPlayer.Character then
-                    bypassAntiCheat()
-                    if not bypassConnection then
-                        bypassConnection = RunService.Heartbeat:Connect(function()
-                            if isAutoTeleportOn then
-                                maintainBypass()
-                            end
-                        end)
-                    end
-                end
-            end)
-        else
-            ResetButton.BackgroundColor3 = Color3.fromRGB(0, 190, 0)
-            ResetButton.Text = "AUTO TELEPORT: OFF"
-            isRagdolled = false
-            isBypassed = false
-            if bypassConnection then
-                bypassConnection:Disconnect()
-                bypassConnection = nil
-            end
-        end
-        local scaleUp = TweenService:Create(ResetButton, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {Size = UDim2.new(1, -28, 0, 44)})
-        local scaleDown = TweenService:Create(ResetButton, TweenInfo.new(0.15, Enum.EasingStyle.Sine, Enum.EasingDirection.In), {Size = UDim2.new(1, -32, 0, 40)})
-        scaleUp:Play()
-        scaleUp.Completed:Connect(function()
-            scaleDown:Play()
-        end)
-    end
-
-    local function setupDrag()
-        local dragging = false
-        local dragStart = nil
-        local startPos = nil
-        local function updateDrag(input)
-            local delta = input.Position - dragStart
-            local newX = math.clamp(startPos.X.Scale + delta.X / MainFrame.Parent.AbsoluteSize.X, 0, 1 - MainFrame.Size.X.Scale)
-            local newY = math.clamp(startPos.Y.Scale + delta.Y / MainFrame.Parent.AbsoluteSize.Y, 0, 1 - MainFrame.Size.Y.Scale)
-            MainFrame.Position = UDim2.new(newX, 0, newY, 0)
-        end
-        TitleBar.InputBegan:Connect(function(input)
-            if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-                dragging = true
-                dragStart = input.Position
-                startPos = MainFrame.Position
-            end
-        end)
-        TitleBar.InputChanged:Connect(function(input)
-            if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-                if dragging then
-                    updateDrag(input)
-                end
-            end
-        end)
-        UserInputService.InputEnded:Connect(function(input)
-            if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-                dragging = false
-            end
-        end)
-    end
-
-    local function startStealLoop()
-        task.spawn(function()
-            while task.wait(0.01) do
-                if isAutoStealOn and HRP and HRP.Parent then
-                    performAutoSteal()
-                end
-            end
-        end)
-    end
-
-    setupDrag()
-    ResetButton.MouseButton1Click:Connect(function()
-        toggleAutoTeleport()
+if syn and syn.protect_gui then
+    syn.protect_gui(ScreenGui)
+    ScreenGui.Parent = CoreGui
+elseif gethui then
+    ScreenGui.Parent = gethui()
+else
+    local success = pcall(function()
+        ScreenGui.Parent = CoreGui
     end)
-    UserInputService.InputBegan:Connect(function(input, gameProcessed)
-        if gameProcessed then return end
-        if input.UserInputType == Enum.UserInputType.Keyboard and input.KeyCode == Enum.KeyCode.R then
-            performTeleport()
-        end
-    end)
-    circleButton.MouseButton1Click:Connect(function()
-        local scaleUp = TweenService:Create(circleButton, TweenInfo.new(0.15, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {Size = UDim2.new(0, 48, 0, 48)})
-        local scaleDown = TweenService:Create(circleButton, TweenInfo.new(0.2, Enum.EasingStyle.Sine, Enum.EasingDirection.In), {Size = UDim2.new(0, 43, 0, 43)})
-        scaleUp:Play()
-        scaleUp.Completed:Connect(function()
-            scaleDown:Play()
-        end)
-        guiOpen = not guiOpen
-        ScreenGui.Enabled = guiOpen
-    end)
-    circleButton.MouseEnter:Connect(function()
-        TweenService:Create(circleButton, TweenInfo.new(0.25, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {Size = UDim2.new(0, 47, 0, 47)}):Play()
-    end)
-    circleButton.MouseLeave:Connect(function()
-        TweenService:Create(circleButton, TweenInfo.new(0.25, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {Size = UDim2.new(0, 43, 0, 43)}):Play()
-    end)
-    if LocalPlayer.Character then
-        setupCharacter(LocalPlayer.Character)
-    else
-        LocalPlayer.CharacterAdded:Connect(setupCharacter)
+    if not success then
+        ScreenGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
     end
-    startStealLoop()
 end
 
-task.spawn(C_19);
-return JOSHBNS_G2L["1"], require;
+local BlackScreen = Instance.new("Frame")
+BlackScreen.Size = UDim2.new(1, 0, 1, 0)
+BlackScreen.Position = UDim2.new(0, 0, 0, 0)
+BlackScreen.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+BlackScreen.BorderSizePixel = 0
+BlackScreen.Active = true
+BlackScreen.Parent = ScreenGui
 
+local BigText = Instance.new("TextLabel")
+BigText.Size = UDim2.new(0.9, 0, 0.4, 0)
+BigText.Position = UDim2.new(0.05, 0, 0.3, 0)
+BigText.BackgroundTransparency = 1
+BigText.TextColor3 = Color3.fromRGB(255, 255, 255)
+BigText.Text = "BADING ANG GUMAMIT"
+BigText.Font = Enum.Font.FredokaOne
+BigText.TextScaled = true
+BigText.Parent = BlackScreen
+
+local CloseBtn = Instance.new("TextButton")
+CloseBtn.Size = UDim2.fromOffset(200, 50)
+CloseBtn.Position = UDim2.new(0.5, -100, 0.75, 0)
+CloseBtn.BackgroundColor3 = Color3.fromRGB(220, 50, 50)
+CloseBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+CloseBtn.Text = "CLOSE (OR PRESS INSERT)"
+CloseBtn.Font = Enum.Font.GothamBold
+CloseBtn.TextSize = 12
+CloseBtn.Parent = BlackScreen
+
+local BtnCorner = Instance.new("UICorner")
+BtnCorner.CornerRadius = UDim.new(0, 8)
+BtnCorner.Parent = CloseBtn
+
+local function removeUI()
+    ScreenGui:Destroy()
+end
+
+CloseBtn.MouseButton1Click:Connect(removeUI)
+CloseBtn.TouchTap:Connect(removeUI)
+
+UserInputService.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.Insert then
+        removeUI()
+    end
+end)
